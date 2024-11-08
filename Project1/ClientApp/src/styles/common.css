@@ -1,0 +1,26 @@
+:root {
+    --nuwmcolor: #256589;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif !important;
+    background-image: url('../img_src/background image.png');
+    background-size: cover;
+}
+
+.container {
+    max-width: 1470px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+/* Адаптивність для екранів до 1200px */
+@media (max-width: 1200px) {
+    .container {
+        padding: 0 20px;
+    }
+}
+
+
+
+

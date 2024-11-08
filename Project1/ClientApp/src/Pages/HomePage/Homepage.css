@@ -1,0 +1,85 @@
+/* Основний контейнер для контенту */
+.content {
+  display: flex;
+  width: calc(100% - 325px);
+  box-sizing: border-box;
+}
+
+/* Блоки, що містять картки розкладу */
+.blocks {
+  margin-left: 250px;
+  margin-top: 70px;
+  height: calc(100vh - 144px);
+  overflow-y: auto; 
+  overflow-x: hidden; 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 590px;
+}
+
+/* Стилі для скролу */
+.blocks::-webkit-scrollbar {
+  width: 10px;
+}
+
+.blocks::-webkit-scrollbar-thumb {
+  background-color: #256489b8;
+  border-radius: 20px;
+}
+
+.blocks::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Адаптація для екранів до 768px */
+@media (max-width: 768px) {
+  .content {
+    width: 100%; /* Повна ширина для контенту */
+  }
+
+  .blocks {
+    margin-left: 0; /* Видалення лівого відступу */
+    margin-top: 80px; /* Відступ зверху */
+    margin-bottom: 100px;
+    height: auto;
+    overflow: visible; /* Зняття обмежень прокручування */
+    padding: 10px; /* Менший внутрішній відступ */
+  }
+
+  .schedule-card {
+    width: 100%; /* Розширення картки на всю ширину контейнера */
+    padding: 10px;
+    font-size: 16px; /* Стандартний розмір шрифту для читабельності */
+  }
+  .left-bar {
+    width: 12px; /* Зменшена ширина */
+  }
+
+  .time,
+  .room {
+    font-size: 17px;
+  }
+
+  .subject {
+    font-size: 20px;
+  }
+
+  .type {
+    font-size: 15px;
+  }
+
+  .groups {
+    font-size: 14px;
+  }
+
+  .teacher {
+    font-size: 12px;
+  }
+  .blocks::-webkit-scrollbar {
+    display: none; /* Приховування скролбару */
+  }
+}

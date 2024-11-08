@@ -1,0 +1,61 @@
+.ts-page {
+    display: flex;
+    flex-direction: column;
+}
+
+.ts-content {
+    display: flex;
+}
+
+.ts-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1400px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.ts-form button {
+    background-color: #256589;
+    width: 240px;
+    height: 50px;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.ts-form button:hover {
+    background-color: #1d4f65;
+}
+
+
+.form-container {
+    width: 60%; 
+}
+
+.logs-container {
+    width: 35%; 
+    background-color: #256589;
+    padding: 20px;
+    color: #fff;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.logs-container h2 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.logs-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.logs-container li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}

@@ -1,0 +1,79 @@
+.account-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.account-content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 90px 0;
+    overflow-y: auto;
+}
+
+.account-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1400px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.grades-table {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 2px solid #256489b8;
+    flex: 1 1 50%;
+}
+
+.grades-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.grades-table th,
+.grades-table td {
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+.latest-grades {
+    background-color: #256489;
+    color: white;
+    padding: 30px; 
+    margin-bottom: 20px;
+    border-radius: 10px;
+    flex: 1 1 45%; 
+}
+
+.grades-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.grade-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #fff;
+}
+
+.account-content::-webkit-scrollbar {
+    width: 10px;
+}
+
+.account-content::-webkit-scrollbar-thumb {
+    background-color: #256489b8;
+    border-radius: 20px;
+}
+
+.account-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+

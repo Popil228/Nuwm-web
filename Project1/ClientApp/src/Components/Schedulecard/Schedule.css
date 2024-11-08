@@ -1,0 +1,110 @@
+/* Schedule.css */
+.schedule-card {
+  width: 730px;
+  height: 150px;
+  background-color: #00000018;
+  border-radius: 8px;
+  padding: 15px 20px;
+  position: relative;
+}
+
+.left-bar {
+  width: 13px;
+  background-color: #256589;
+  border-radius: 8px 0 0 8px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.schedule-card-content {
+  padding-left: 13px;
+  flex: 1;
+  position: relative;
+}
+
+.schedule-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.time,
+.room {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.subject {
+  font-size: 22px;
+  font-weight: 500;
+  margin: 10px 0;
+}
+
+.type {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.schedule-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.groups-teacher-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.groups {
+  font-size: 15px;
+}
+
+.teacher {
+  font-size: 13px;
+  text-align: right;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .schedule-card {
+    top: 40px;
+    overflow: hidden;
+    bottom: 90px;
+    width: 100%;
+    height: auto;
+    padding: 10px 15px;
+    margin-top: 10px;
+
+  }
+
+  .left-bar {
+    width: 12px; /* Зменшена ширина */
+  }
+
+  .time,
+  .room {
+    font-size: 17px;
+  }
+
+  .subject {
+    font-size: 20px;
+  }
+
+  .type {
+    font-size: 15px;
+  }
+
+  .groups {
+    font-size: 14px;
+  }
+
+  .teacher {
+    font-size: 12px;
+  }
+}
+

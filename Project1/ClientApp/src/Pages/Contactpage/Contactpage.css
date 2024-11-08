@@ -1,0 +1,126 @@
+.contact-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    align-items: center;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+header,
+footer {
+    flex-shrink: 0;
+    width: 100%;
+}
+
+.contacts-container {
+    display: flex;
+    justify-content: space-between;
+    border: 3px solid #256589;
+    border-radius: 10px;
+    background: #fff;
+    width: 100%;
+    gap: 20px;
+}
+
+.contact-info {
+    width: 50%;
+    background-color: #256589;
+    color: white;
+    padding: 35px;
+    border-radius: 5px 0 0 5px;
+    display: flex; 
+    flex-direction: column;
+}
+
+.contact-info p,
+.contact-info ul {
+    margin: 10px 0;
+    padding: 0; 
+    list-style-type: none;
+}
+
+.name-surname,
+.email-phone {
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.contact-form {
+    width: 100%;
+    padding: 35px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.contact-form p {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 5px;
+    border: 1px solid #25648979;
+}
+
+.contact-form textarea {
+    height: 120px;
+    resize: none;
+    outline: none;
+}
+
+.contact-form form button {
+    background-color: #256589;
+    width: 240px;
+    height: 50px;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form form button:hover {
+    background-color: #1f4f72;
+}
+
+.social a {
+    margin-right: 15px;
+    color: white;
+}
+
+.social ul {
+    padding: 0;
+    display: flex;
+}
+
+.fas {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.fab {
+    font-size: 20px;
+}
+
+/* Медіа-запити для адаптивності */
+@media (max-width: 768px) {
+    .contacts-container {
+        flex-direction: column;
+    }
+    .contact-info,
+    .contact-form {
+        width: 100%;
+    }
+}

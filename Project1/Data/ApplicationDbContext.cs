@@ -1,0 +1,75 @@
+﻿using Duende.IdentityServer.EntityFramework.Options;
+using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using Project1.Models;
+using Project1.Models.Entitys;
+
+namespace Project1.Data
+{
+    public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>
+    {
+        public DbSet<Group>? Groups { get; set; }
+        public DbSet<Institute>? Institutes { get; set; }
+        public DbSet<Person>? Persons { get; set; }
+        public DbSet<Student>? Students { get; set; }
+        public DbSet<Subgroup>? Subgroups { get; set; }
+        public DbSet<Teacher>? Teachers { get; set; }
+        public DbSet<TeacherGroup>? TeacherGroups { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            // Groups ↔ Institutes
+            modelBuilder.Entity<Group>()
+                .HasOne(g => g.Institute)
+                .WithMany(i => i.Groups)
+                .HasForeignKey(g => g.InstituteId);
+
+            // Groups ↔ Subgroups
+            modelBuilder.Entity<Subgroup>()
+                .HasOne(sg => sg.Group)
+                .WithMany(g => g.Subgroups)
+                .HasForeignKey(sg => sg.GroupId);
+
+            // Groups ↔ Students
+            modelBuilder.Entity<Student>()
+                .HasOne(s => s.Group)
+                .WithMany(g => g.Students)
+                .HasForeignKey(s => s.GroupId);
+
+            // Students ↔ Person
+            modelBuilder.Entity<Student>()
+                .HasOne(s => s.Person)
+                .WithOne()
+                .HasForeignKey<Student>(s => s.PersonId);
+
+            // Teachers ↔ Person
+            modelBuilder.Entity<Teacher>()
+                .HasOne(t => t.Person)
+                .WithOne()
+                .HasForeignKey<Teacher>(t => t.PersonId);
+
+            // Teachers ↔ Groups через TeacherGroups
+            modelBuilder.Entity<TeacherGroup>()
+                .HasKey(tg => new { tg.TeacherId, tg.GroupId });
+
+            modelBuilder.Entity<TeacherGroup>()
+                .HasOne(tg => tg.Teacher)
+                .WithMany(t => t.TeacherGroups)
+                .HasForeignKey(tg => tg.TeacherId);
+
+            modelBuilder.Entity<TeacherGroup>()
+                .HasOne(tg => tg.Group)
+                .WithMany(g => g.TeacherGroups)
+                .HasForeignKey(tg => tg.GroupId);
+        }
+
+        public ApplicationDbContext(DbContextOptions options, IOptions<OperationalStoreOptions> operationalStoreOptions)
+            : base(options, operationalStoreOptions)
+        {
+
+        }
+    }
+}
