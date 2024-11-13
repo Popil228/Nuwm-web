@@ -1,14 +1,24 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 import './Loginpage.css'
 import logoico from './../../img_src/logoico.svg'
 
 const Loginpage = () => {
-    const navigate = useNavigate();
-    const handleLogin = () => {
-        console.log('Користувач натиснув кнопку "Увійти"');
-        navigate('/home');
-    };
+    
+    useEffect(() => {
+        async function fetchLogin() {
+            const token = await authService.getAccessToken();
+            const response = await fetch('Login/Login', {
+                headers: !token ? {} : { 'Authorization': `Bearer ${token}` }
+            });
+            //const data = await response.json();
+            //setLogin(data);
+        }
+
+        fetchLogin();
+    }, []);
+
+       
 
     return (
         <div className="login-box">
@@ -18,7 +28,7 @@ const Loginpage = () => {
             <div className='text'>
                 <p>Увійдіть в акаунт</p>
             </div>
-            <button className="login-button" onClick={handleLogin}>Увійти</button>
+            <button className="login-button" onClick={fetchData} >Увійти</button>
         </div>
     );
 };
