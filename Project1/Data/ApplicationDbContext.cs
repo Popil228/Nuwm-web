@@ -16,10 +16,17 @@ namespace Project1.Data
         public DbSet<Subgroup>? Subgroups { get; set; }
         public DbSet<Teacher>? Teachers { get; set; }
         public DbSet<TeacherGroup>? TeacherGroups { get; set; }
+        public DbSet<NumPara> NumParas { get; set; }
+        public DbSet<TypePara> TypeParas { get; set; }
+        public DbSet<Subject> Subjects { get; set; }
+        public DbSet<Mark> Marks { get; set; }
+        public DbSet<Schedule> Schedules { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+
 
             // Groups ↔ Institutes
             modelBuilder.Entity<Group>()
@@ -64,6 +71,46 @@ namespace Project1.Data
                 .HasOne(tg => tg.Group)
                 .WithMany(g => g.TeacherGroups)
                 .HasForeignKey(tg => tg.GroupId);
+
+            // NumPara - Schedule (1 to many)
+            modelBuilder.Entity<NumPara>()
+                .HasMany(n => n.Schedules)
+                .WithOne(s => s.NumPara)
+                .HasForeignKey(s => s.NumParaId);
+
+            // TypePara - Schedule (1 to many)
+            modelBuilder.Entity<TypePara>()
+                .HasMany(t => t.Schedules)
+                .WithOne(s => s.TypePara)
+                .HasForeignKey(s => s.TypeParaId);
+
+            // Subject - Mark (1 to many)
+            modelBuilder.Entity<Subject>()
+                .HasMany(s => s.Marks)
+                .WithOne(m => m.Subject)
+                .HasForeignKey(m => m.SubjectId);
+
+            // Subject - Schedule (1 to many)
+            modelBuilder.Entity<Subject>()
+                .HasMany(s => s.Schedules)
+                .WithOne(sch => sch.Subject)
+                .HasForeignKey(sch => sch.SubjectId);
+
+
+            // Subject - Marks (No Cascade Delete)
+            modelBuilder.Entity<Mark>()
+                .HasOne(m => m.Subject)
+                .WithMany(s => s.Marks)
+                .HasForeignKey(m => m.SubjectId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Subject - Schedule (Cascade Delete)
+            modelBuilder.Entity<Schedule>()
+                .HasOne(sch => sch.Subject)
+                .WithMany(sub => sub.Schedules)
+                .HasForeignKey(sch => sch.SubjectId)
+                .OnDelete(DeleteBehavior.Cascade);
+
         }
 
         public ApplicationDbContext(DbContextOptions options, IOptions<OperationalStoreOptions> operationalStoreOptions)

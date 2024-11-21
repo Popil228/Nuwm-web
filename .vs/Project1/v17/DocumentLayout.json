@@ -3,12 +3,32 @@
   "WorkspaceRootPath": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|d:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0441\u0430\u0439\u0442\\project1\\project1\\controllers\\oidcconfigurationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|solutionrelative:project1\\controllers\\oidcconfigurationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|d:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0441\u0430\u0439\u0442\\project1\\project1\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|solutionrelative:project1\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|d:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0441\u0430\u0439\u0442\\project1\\project1\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|solutionrelative:project1\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|d:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0441\u0430\u0439\u0442\\project1\\project1\\clientapp\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|solutionrelative:project1\\clientapp\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|d:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0441\u0430\u0439\u0442\\project1\\project1\\clientapp\\src\\pages\\loginpage\\loginpage.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}|",
+      "RelativeMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|solutionrelative:project1\\clientapp\\src\\pages\\loginpage\\loginpage.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|d:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0441\u0430\u0439\u0442\\project1\\project1\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|solutionrelative:project1\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|d:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0441\u0430\u0439\u0442\\project1\\project1\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|solutionrelative:project1\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|d:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0441\u0430\u0439\u0442\\project1\\project1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|solutionrelative:project1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|d:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0441\u0430\u0439\u0442\\project1\\project1\\clientapp\\src\\setupproxy.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|solutionrelative:project1\\clientapp\\src\\setupproxy.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,33 +38,98 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "OidcConfigurationController.cs",
-              "DocumentMoniker": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\Controllers\\OidcConfigurationController.cs",
-              "RelativeDocumentMoniker": "Project1\\Controllers\\OidcConfigurationController.cs",
-              "ToolTip": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\Controllers\\OidcConfigurationController.cs",
-              "RelativeToolTip": "Project1\\Controllers\\OidcConfigurationController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAABoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T10:23:39.257Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0174dea2-fdbe-4ef1-8f99-c0beae78880f}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\Data\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "Project1\\Data\\ApplicationDbContext.cs",
-              "ToolTip": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\Data\\ApplicationDbContext.cs",
-              "RelativeToolTip": "Project1\\Data\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T08:57:01.481Z",
+              "Title": ".gitignore",
+              "DocumentMoniker": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\ClientApp\\.gitignore",
+              "RelativeDocumentMoniker": "Project1\\ClientApp\\.gitignore",
+              "ToolTip": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\ClientApp\\.gitignore",
+              "RelativeToolTip": "Project1\\ClientApp\\.gitignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-11-21T07:25:15.434Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": ".gitignore",
+              "DocumentMoniker": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\.gitignore",
+              "RelativeDocumentMoniker": "Project1\\.gitignore",
+              "ToolTip": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\.gitignore",
+              "RelativeToolTip": "Project1\\.gitignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-11-21T07:24:18.176Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "setupProxy.js",
+              "DocumentMoniker": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\ClientApp\\src\\setupProxy.js",
+              "RelativeDocumentMoniker": "Project1\\ClientApp\\src\\setupProxy.js",
+              "ToolTip": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\ClientApp\\src\\setupProxy.js",
+              "RelativeToolTip": "Project1\\ClientApp\\src\\setupProxy.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-11-19T09:18:56.153Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\Program.cs",
+              "RelativeDocumentMoniker": "Project1\\Program.cs",
+              "ToolTip": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\Program.cs",
+              "RelativeToolTip": "Project1\\Program.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAAADEAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T10:30:40.99Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Loginpage.jsx",
+              "DocumentMoniker": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\ClientApp\\src\\Pages\\Loginpage\\Loginpage.jsx",
+              "RelativeDocumentMoniker": "Project1\\ClientApp\\src\\Pages\\Loginpage\\Loginpage.jsx",
+              "ToolTip": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\ClientApp\\src\\Pages\\Loginpage\\Loginpage.jsx",
+              "RelativeToolTip": "Project1\\ClientApp\\src\\Pages\\Loginpage\\Loginpage.jsx",
+              "ViewState": "AgIAAAMAAAAAAAAAAAASwBgAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2024-11-19T09:07:54.831Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "Project1\\Controllers\\LoginController.cs",
+              "ToolTip": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "Project1\\Controllers\\LoginController.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAuwBoAAABgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T08:26:35.432Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\appsettings.json",
+              "RelativeDocumentMoniker": "Project1\\appsettings.json",
+              "ToolTip": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\appsettings.json",
+              "RelativeToolTip": "Project1\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-18T09:38:19.881Z"
             }
           ]
         }

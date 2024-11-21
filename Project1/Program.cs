@@ -1,17 +1,61 @@
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Project1.Data;
 using Project1.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.Google;
+using Microsoft.AspNetCore.Authentication;
+using System.Security.Claims;
+using Microsoft.Extensions.Caching.Memory;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Íàëàøòóâàííÿ àâòåíòèô³êàö³¿ ÷åðåç Google
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
+})
+.AddCookie()
+.AddGoogle(GoogleDefaults.AuthenticationScheme, options =>
+{
+    options.ClientId = builder.Configuration["Authentication:Google:ClientId"];
+    options.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
+    options.CallbackPath = "/login/signin-google";
+    // Додаткова логіка після успішного входу
+    options.Events.OnTicketReceived = context =>
+    {
+        var userPrincipal = context.Principal;
+        context.HttpContext.Response.Headers.Add("Cache-Control", "no-store");
+
+        // Зберігаємо в кеш, наприклад, на 30 хвилин
+        // Можна використовувати MemoryCache або інший механізм кешування
+        context.HttpContext.RequestServices.GetService<IMemoryCache>().Set("UserPrincipal", userPrincipal, TimeSpan.FromMinutes(30));
+        return Task.CompletedTask;
+    };
+    options.SaveTokens = true; // Зберігати токени для відлагодження
+});
+
+
+// Íàëàøòóâàííÿ CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("ReactPolicy", policy =>
+    {
+        policy.WithOrigins("https://localhost:44476")
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
+// Äîäàâàííÿ êîíòåêñòó áàçè äàíèõ òà àâòåíòèô³êàö³¿
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
+// Äîäàâàííÿ Identity
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
@@ -21,24 +65,29 @@ builder.Services.AddIdentityServer()
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
+var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Íàëàøòóâàííÿ HTTP pipeline
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
 }
 else
 {
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    // Çà çàìîâ÷óâàííÿì HSTS äëÿ ïðîäóêö³éíîãî ñåðåäîâèùà
     app.UseHsts();
 }
+
+// Âèêîðèñòàííÿ CORS
+app.UseCors("ReactPolicy");
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
-app.UseAuthentication();
-app.UseIdentityServer();
+// Ïîðÿäîê âèêîðèñòàííÿ Middleware
+app.UseAuthentication();  // Âèêîðèñòîâóºìî àâòåíòèô³êàö³þ
+app.UseIdentityServer();   // Âèêîðèñòîâóºìî IdentityServer
 app.UseAuthorization();
 
 app.MapControllerRoute(
@@ -46,6 +95,9 @@ app.MapControllerRoute(
     pattern: "{controller}/{action=Index}/{id?}");
 app.MapRazorPages();
 
-app.MapFallbackToFile("index.html"); ;
+// Âèçíà÷àºìî fallback äëÿ SPA
+app.MapFallbackToFile("index.html");
+
+app.MapControllers();
 
 app.Run();

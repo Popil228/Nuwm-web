@@ -5,7 +5,7 @@
 
         public int Id { get; set; }
         public int Number { get; set; }
-        public string? GroupId { get; set; }
+        public int GroupId { get; set; }
 
         public Group? Group { get; set; }
         public ICollection<Student> Students { get; set; } = new List<Student>();
