@@ -92,7 +92,7 @@
     color: rgb(0, 0, 0);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1680px) {
     .menu-button {
         display: block;
         opacity: 70%;
@@ -100,8 +100,6 @@
     .sidebar {
         width: 250px;
         right: -250px;
-        top: 60px; 
-        bottom: 60px; 
         overflow-y: auto; 
     }
     .sidebar.open {
@@ -119,37 +117,5 @@
     }
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
-    .menu-button {
-        display: block;
-        top: 45%; /* Легке коригування позиції на планшетах */
-        font-size: 22px; /* Трохи зменшений шрифт */
-        padding: 8px 18px;
-    }
-
-    .sidebar {
-        width: 280px; /* Зменшена ширина панелі для планшетів */
-        right: -280px; /* Початкове положення */
-        top: 60px; 
-        bottom: 60px; 
-        overflow-y: auto; /* Прибираємо скрол */
-    }
-
-    .sidebar.open {
-        right: 0; /* Висуваємо панель на екран при відкритті */
-    }
-
-    .arrow-btn {
-        width: 130px;
-        height: 42px;
-        font-size: 15px;
-    }
-
-    .nav-btn {
-        width: 220px;
-        font-size: 13px;
-        margin: 12px 0;
-    }
-}
 
 

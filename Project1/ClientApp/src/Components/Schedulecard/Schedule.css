@@ -70,41 +70,5 @@
   text-align: right;
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
-  .schedule-card {
-    top: 40px;
-    overflow: hidden;
-    bottom: 90px;
-    width: 100%;
-    height: auto;
-    padding: 10px 15px;
-    margin-top: 10px;
 
-  }
-
-  .left-bar {
-    width: 12px; /* Зменшена ширина */
-  }
-
-  .time,
-  .room {
-    font-size: 17px;
-  }
-
-  .subject {
-    font-size: 20px;
-  }
-
-  .type {
-    font-size: 15px;
-  }
-
-  .groups {
-    font-size: 14px;
-  }
-
-  .teacher {
-    font-size: 12px;
-  }
-}
 

@@ -33,23 +33,40 @@ const TeacherPage = () => {
   const [subject, setSubject] = useState('');
   const [classroom, setClassroom] = useState('');
   const [teacherName, setTeacherName] = useState('');
+  const [logs, setLogs] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({
-      group,
-      subgroup,
-      pairNumber,
-      type,
-      subject,
-      classroom,
-      teacherName,
-    });
+
+    const logEntry = {
+      group: group?.label || 'Не вказано',
+      subgroup: subgroup?.label || 'Не вказано',
+      pairNumber: pairNumber?.label || 'Не вказано',
+      type: type?.label || 'Не вказано',
+      subject: subject || 'Не вказано',
+      classroom: classroom || 'Не вказано',
+      teacherName: teacherName || 'Не вказано',
+      timestamp: new Date().toLocaleString(),
+    };
+
+    setLogs((prevLogs) => [...prevLogs, logEntry]);
+
+    setGroup(null);
+    setSubgroup(null);
+    setPairNumber(null);
+    setType(null);
+    setSubject('');
+    setClassroom('');
+    setTeacherName('');
+  };
+
+  // Функція для видалення останнього лога
+  const deleteLastLog = () => {
+    setLogs((prevLogs) => prevLogs.slice(0, prevLogs.length - 1));
   };
 
   return (
     <div className="teacher-page-container">
-      <p>Призначити пару</p>
       <form onSubmit={handleSubmit} className="inputs">
         <div className="form-group">
           <label>Група</label>
@@ -79,16 +96,16 @@ const TeacherPage = () => {
           />
         </div>
         <div className="form-group">
-          <label>Тип предмету</label>
+          <label>Тип пари</label>
           <Select
             options={types}
             value={type}
             onChange={setType}
-            placeholder="Оберіть тип предмету"
+            placeholder="Оберіть вид заняття"
           />
         </div>
         <div className="form-group">
-          <label>Назва предмету</label>
+          <label>Назва пари</label>
           <input
             type="text"
             value={subject}
@@ -106,16 +123,35 @@ const TeacherPage = () => {
           />
         </div>
         <div className="form-group">
-          <label>Ім'я викладача</label>
+          <label>Ініціали викладача</label>
           <input
             type="text"
             value={teacherName}
             onChange={(e) => setTeacherName(e.target.value)}
-            placeholder="Введіть ім'я викладача"
+            placeholder="Введіть ініціали викладача"
           />
         </div>
-        <button type="submit">Призначити</button>
+        <button type="submit">Призначити пару</button>
       </form>
+
+      <div className="logs">
+        <h2>Пар не призначено:</h2>
+        {logs.length === 0 ? (
+          <p>Призначити пару.</p>
+        ) : (
+          <ul>
+            {logs.map((log, index) => (
+              <li key={index}>
+                <strong>{log.timestamp}</strong> - Група: {log.group}, Підгрупа: {log.subgroup}, 
+                Пара: {log.pairNumber}, Тип: {log.type}, Предмет: {log.subject}, Кабінет: {log.classroom}, Викладач: {log.teacherName}
+              </li>
+            ))}
+          </ul>
+        )}
+        <button onClick={deleteLastLog} disabled={logs.length === 0}>
+          Видалити останню пару
+        </button>
+      </div>
     </div>
   );
 };

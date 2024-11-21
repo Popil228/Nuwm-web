@@ -1,46 +1,113 @@
 .teacher-page-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    flex-grow: 1;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 120px 20px; 
     height: 100vh;
-    flex-direction: column;
-}
-
-.teacher-page-container p {
+    box-sizing: border-box;
+  }
+  
+  .form-and-logs {
+    display: flex;
+    gap: 20px;
+    max-width: 1200px;
+    width: 100%;
+    align-items: flex-start;
+  }
+  
+  .inputs {
+    flex: 3;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: 230px;
+    width: 50%;
+  }
+  
+  .logs {
+    flex: 1;
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-right: 230px;
+    border-radius: 10px;
+    border: 2px solid #256489;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    max-height: 76.3vh;
+  }
+  
+  .logs h2 {
+    margin-bottom: 10px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #256489;
+  }
+  
+  .logs ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .logs li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .logs li:last-child {
+    border-bottom: none;
+  }
+  
+  .logs li strong {
+    color: #333;
+  }
+  
+  button {
+    background-color: #256489;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #1f4f72;
+  }
+  
+  .teacher-page-container p {
     font-size: 26px;
     font-weight: bold;
-}
-
-.inputs {
-    width: 50%;
-}
-
-.form-group {
+  }
+  
+  .form-group {
     margin-bottom: 20px;
-}
-
-label {
+  }
+  
+  label {
     display: block;
     margin-bottom: 10px;
-}
-
-input,
-.react-select__control {
+  }
+  
+  input,
+  .react-select__control {
     width: 100%;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ddd;
     color: #B7B7B7; 
-}
-
-input:focus,
-.react-select__control--is-focused {
+    background-color: #fff;
+  }
+  
+  input:focus,
+  .react-select__control--is-focused {
     border-color: #2684FF;
-}
-
-.teacher-page-container button {
+    background-color: #fff;
+  }
+  
+  .teacher-page-container button {
     background-color: var(--nuwmcolor);
     color: #fff;
     width: 300px;
@@ -50,18 +117,38 @@ input:focus,
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
-
-.teacher-page-container button:hover {
+  }
+  
+  .teacher-page-container button:hover {
     background-color: #1f4f72;
-}
+  }
+  
+  .logs::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .logs::-webkit-scrollbar-thumb {
+    background-color: #256489;
+    border-radius: 5px;
+  }
 
-@media (max-width: 768px) {
-    .inputs {
-        width: 90%;
-    }
-    
-    .teacher-page-container p {
-        font-size: 20px; 
-    }
-}
+  .scrollbar {
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 10px;
+  }
+  
+  .scrollbar::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  .scrollbar::-webkit-scrollbar-thumb {
+    background-color: #256489;
+    border-radius: 5px;
+  }
+  
+  .scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  

@@ -10,8 +10,8 @@
   margin-left: 250px;
   margin-top: 70px;
   height: calc(100vh - 144px);
-  overflow-y: auto; 
-  overflow-x: hidden; 
+  overflow-y: auto;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -35,29 +35,30 @@
   background: #f1f1f1;
 }
 
-/* Адаптація для екранів до 768px */
-@media (max-width: 768px) {
+@media (max-width: 1680px) {
   .content {
-    width: 100%; /* Повна ширина для контенту */
+    width: 100%;
   }
 
   .blocks {
-    margin-left: 0; /* Видалення лівого відступу */
-    margin-top: 80px; /* Відступ зверху */
+    margin-left: 0;
+    margin-top: 80px;
     margin-bottom: 100px;
     height: auto;
-    overflow: visible; /* Зняття обмежень прокручування */
-    padding: 10px; /* Менший внутрішній відступ */
+    overflow: visible;
+    padding: 10px;
   }
 
   .schedule-card {
-    width: 100%; /* Розширення картки на всю ширину контейнера */
+    width: 100%;
     padding: 10px;
-    font-size: 16px; /* Стандартний розмір шрифту для читабельності */
+    font-size: 16px;
   }
+
   .left-bar {
-    width: 12px; /* Зменшена ширина */
+    width: 12px;
   }
+
 
   .time,
   .room {
@@ -79,7 +80,8 @@
   .teacher {
     font-size: 12px;
   }
+
   .blocks::-webkit-scrollbar {
-    display: none; /* Приховування скролбару */
+    display: none;
   }
 }

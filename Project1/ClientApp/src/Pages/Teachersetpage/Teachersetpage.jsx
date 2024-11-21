@@ -26,8 +26,8 @@ const Teachersetpage = () => {
   const [group, setGroup] = useState(null);
   const [student, setStudent] = useState(null);
   const [subject, setSubject] = useState(null);
-  const [score, setScore] = useState(''); // Додаємо стан для оцінки
-  const [grades, setGrades] = useState([]); // Додаємо стан для оцінок
+  const [score, setScore] = useState('');
+  const [grades, setGrades] = useState([]);
 
   const user = {
     avatar: profileimg,
@@ -42,22 +42,26 @@ const Teachersetpage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Перевіряємо, чи всі поля заповнені
     if (group && student && subject && score) {
       const newGrade = {
         group: group.label,
         student: student.label,
         subject: subject.label,
-        score, // Додаємо оцінку
+        score,
       };
       setGrades([...grades, newGrade]);
-      // Скидаємо поля форми після сабміту
       setGroup(null);
       setStudent(null);
       setSubject(null);
-      setScore(''); // Скидаємо значення оцінки
+      setScore('');
     } else {
       alert('Будь ласка, заповніть всі поля перед призначенням оцінки.');
+    }
+  };
+
+  const handleDeleteLastLog = () => {
+    if (grades.length > 0) {
+      setGrades(grades.slice(0, grades.length - 1)); // Видаляємо останній елемент
     }
   };
 
@@ -109,7 +113,6 @@ const Teachersetpage = () => {
             </form>
           </div>
 
-          {/* Виводимо список оцінок тільки якщо є значення */}
           <div className="logs-container">
             <h2>Список призначених оцінок</h2>
             {grades.length > 0 ? (
@@ -123,6 +126,9 @@ const Teachersetpage = () => {
             ) : (
               <p>Оцінок ще немає.</p>
             )}
+            <button onClick={handleDeleteLastLog} className="delete-log-btn">
+              Видалити останню оцінку
+            </button>
           </div>
         </div>
       </main>

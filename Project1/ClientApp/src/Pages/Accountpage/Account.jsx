@@ -44,10 +44,10 @@ const AccountPage = () => {
       <Header />
       <main className="account-content">
         <div className="account-container">
-          <UserCard user={user} />
+          {/* <UserCard user={user} />
           <StudentList students={students} />
-          <PointCard grades={grades} />
-           {/*<Teachersetpage /> */}
+          <PointCard grades={grades} /> */}
+          <Teachersetpage />  
         </div>
       </main>
       <Footer />

@@ -114,10 +114,11 @@ footer {
     font-size: 20px;
 }
 
-/* Медіа-запити для адаптивності */
 @media (max-width: 768px) {
     .contacts-container {
         flex-direction: column;
+        margin-top: 100px;
+        margin-bottom: 140px;
     }
     .contact-info,
     .contact-form {
