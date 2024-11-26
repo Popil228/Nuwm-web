@@ -33,16 +33,14 @@ namespace Project1.Controllers
 
             // Пошук користувача в базі даних разом з його деталями
             var user = await _context.Persons
-                                      .Include(u => u.Student.Group.Institute)
-                                      .Include(u => u.Student.Group.Subgroups)
-                                      .FirstOrDefaultAsync(u => u.Email == emailClaim);
+                                .SingleOrDefaultAsync(p => p.Email == emailClaim);
 
             if (user == null)
             {
                 return NotFound("User not found.");
             }
 
-            return Ok(user);  // Повертаємо дані користувача разом з його деталями
+            return Json(user);  // Повертаємо дані користувача разом з його деталями
         }
 
     }

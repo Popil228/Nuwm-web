@@ -55,12 +55,12 @@ const AccountPage = () => {
 
   const user = {
     avatar: profileimg,
-    firstName: userData.Name,
-    lastName: userData.SurName,
-    middleName: userData.ThirdName,
-    group: userData.Student.Group.Name,
-    institute: userData.Student.Institute.Name,
-    course: userData.Student.Group.Course,
+    firstName: userData.name,
+    lastName: userData.surName,
+    middleName: userData.thirdName,
+    group: "",
+    institute: "",
+    course: "",
   };
 
   const students = [
