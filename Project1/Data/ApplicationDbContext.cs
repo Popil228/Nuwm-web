@@ -7,7 +7,7 @@ using Project1.Models.Entitys;
 
 namespace Project1.Data
 {
-    public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>
+    public class ApplicationDbContext : ApiAuthorizationDbContext<Person>
     {
         public DbSet<Group>? Groups { get; set; }
         public DbSet<Institute>? Institutes { get; set; }
@@ -25,8 +25,6 @@ namespace Project1.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-
 
             // Groups ↔ Institutes
             modelBuilder.Entity<Group>()
