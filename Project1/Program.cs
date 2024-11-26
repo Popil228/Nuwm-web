@@ -22,7 +22,10 @@ builder.Services.AddAuthentication(options =>
 {
     options.ClientId = builder.Configuration["Authentication:Google:ClientId"];
     options.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
+    options.Scope.Add("https://www.googleapis.com/auth/userinfo.profile");
+    options.Scope.Add("https://www.googleapis.com/auth/userinfo.email");
     options.CallbackPath = "/login/signin-google";
+    options.SaveTokens = true; // Зберігати токени для відлагодження
     // Додаткова логіка після успішного входу
     options.Events.OnTicketReceived = context =>
     {
@@ -33,19 +36,21 @@ builder.Services.AddAuthentication(options =>
         // Можна використовувати MemoryCache або інший механізм кешування
         context.HttpContext.RequestServices.GetService<IMemoryCache>().Set("UserPrincipal", userPrincipal, TimeSpan.FromMinutes(30));
         return Task.CompletedTask;
-    };
-    options.SaveTokens = true; // Зберігати токени для відлагодження
+    };    
 });
 
+builder.Services.AddAuthorization();
 
 // Íàëàøòóâàííÿ CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("ReactPolicy", policy =>
     {
-        policy.WithOrigins("https://localhost:44476")
-              .AllowAnyHeader()
-              .AllowAnyMethod();
+        options.AddPolicy("AllowAll",
+            builder => builder
+                .AllowAnyOrigin()  // Дозволити доступ з будь-якого джерела
+                .AllowAnyMethod()
+                .AllowAnyHeader());
     });
 });
 
@@ -64,6 +69,8 @@ builder.Services.AddIdentityServer()
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+
+builder.Services.AddTransient<EmailService>();
 
 var app = builder.Build();
 

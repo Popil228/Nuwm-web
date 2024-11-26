@@ -1,9 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from "../../Components/Header/header";
 import Footer from '../../Components/Footer/footer';
 import './Contactpage.css';
 
 const ContactsPage = () => {
+
+    const [formData, setFormData] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        message: "",
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            const response = await fetch("/api/contact/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                alert("Повідомлення успішно відправлено!");
+                setFormData({
+                    firstName: "",
+                    lastName: "",
+                    email: "",
+                    phone: "",
+                    message: "",
+                });
+            } else {
+                alert("Сталася помилка при надсиланні повідомлення.");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            alert("Сталася помилка при надсиланні повідомлення.");
+        }
+    };
+
     return (
         <div className="contact-page">
             <Header />
@@ -20,7 +64,7 @@ const ContactsPage = () => {
                                 </div>
                                 <div className="block-2">
                                     <p className="email"><strong>Email:</strong><br /> support@email.com</p>
-                                    <p className="phone"><strong>Phone:</strong><br /> +38 098 877 01<br /> +38 063 421 63</p>
+                                    <p className="phone"><strong>Phone:</strong><br /> +38 063 619 7705<br /> +38 063 619 8805</p>
                                 </div>
                                 <div className="block-3">
                                     <div className="social">
@@ -35,16 +79,22 @@ const ContactsPage = () => {
                             </div>
                             <div className="contact-form">
                                 <p>Відправити повідомлення</p>
-                                <form>
+                                <form onSubmit={handleSubmit}>
                                     <div className="name-surname">
-                                        <input type="text" placeholder="Ім'я" required />
-                                        <input type="text" placeholder="Прізвище" required />
+                                        {/*Ім'я*/}
+                                        <input type="text" name="firstName" placeholder="Ім'я" value={formData.firstName} onChange={handleChange} required />
+                                        {/*Прізвище*/}
+                                        <input type="text" name="lastName" placeholder="Прізвище" value={formData.lastName} onChange={handleChange} required />
                                     </div>
                                     <div className="email-phone">
-                                        <input type="email" placeholder="Email" required />
-                                        <input type="tel" placeholder="Телефон" required />
+                                        {/*Пошта*/}
+                                        <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
+                                        {/*Телефон*/}
+                                        <input type="text" name="phone" placeholder="Телефон" value={formData.phone} onChange={handleChange} />
                                     </div>
-                                    <textarea placeholder="Повідомлення" required></textarea>
+                                    {/*Повідомлення*/}
+                                    <textarea name="message" placeholder="Повідомлення" value={formData.message} onChange={handleChange} required></textarea>
+                                    {/*Відправити*/}
                                     <button type="submit">Відправити</button>
                                 </form>
                             </div>

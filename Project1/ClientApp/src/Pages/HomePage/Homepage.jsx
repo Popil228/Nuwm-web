@@ -9,8 +9,8 @@ const HomePage = () => {
     return (
         <div className="home-page">
             <Header />
-            <TeacherPage />
-            {/* <Sidebar />
+            {/*<TeacherPage />*/}
+            <Sidebar />
             <div className="content">
                 <main>
                     <div className="blocks">
@@ -22,41 +22,9 @@ const HomePage = () => {
                             groups="КІ-21, КБ-21"
                             teacher="Бойчура М.В."
                         />
-                        <ScheduleCard
-                            time="8:00-9:20"
-                            room="каб.244"
-                            subject="Інженерія програмного забезпечення"
-                            type="Лабораторна робота"
-                            groups="КІ-21, КБ-21"
-                            teacher="Бойчура М.В."
-                        />
-                        <ScheduleCard
-                            time="8:00-9:20"
-                            room="каб.244"
-                            subject="Інженерія програмного забезпечення"
-                            type="Лабораторна робота"
-                            groups="КІ-21, КБ-21"
-                            teacher="Бойчура М.В."
-                        />
-                        <ScheduleCard
-                            time="8:00-9:20"
-                            room="каб.244"
-                            subject="Інженерія програмного забезпечення"
-                            type="Лабораторна робота"
-                            groups="КІ-21, КБ-21"
-                            teacher="Бойчура М.В."
-                        />
-                        <ScheduleCard
-                            time="8:00-9:20"
-                            room="каб.244"
-                            subject="Інженерія програмного забезпечення"
-                            type="Лабораторна робота"
-                            groups="КІ-21, КБ-21"
-                            teacher="Бойчура М.В."
-                        />
                     </div>
                 </main>
-            </div>  */}
+            </div>  
             <Footer />
         </div>
     );

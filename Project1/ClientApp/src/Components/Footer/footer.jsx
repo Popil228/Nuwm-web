@@ -10,10 +10,10 @@ const Footer = () => {
                 </div>
                 <div className="footer-contact">
                     <div className="contact-item1">
-                        <p>Телефон: <br /> +380 631 96 60</p>
+                        <p>Телефон: <br />+38 063 619 7705</p>
                     </div>
                     <div className="contact-item2">
-                        <p>Тех. підтримка:<br /> bachmaniuk@gmail.com</p>
+                        <p>Тех. підтримка:<br /> support@email.com</p>
                     </div>
                 </div>
             </div>

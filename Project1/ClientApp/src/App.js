@@ -6,6 +6,7 @@ import ContactsPage from './Pages/Contactpage/Contactpage.jsx';
 import AccountPage from './Pages/Accountpage/Account.jsx';
 import './styles/common.css';
 import './styles/reset.css';
+import LoginSuccess from './Pages/Loginsuccess/Loginsuccess.jsx';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path="/main" element={<HomePage />} /> 
           <Route path="/account" element={<AccountPage />} />
           <Route path="/contacts" element={<ContactsPage />} />
+          <Route path="/login-success" element={<LoginSuccess />} />
         </Routes>
       </div>
     </Router>
