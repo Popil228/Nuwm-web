@@ -3,6 +3,7 @@
     public class Schedule
     {
         public int Id { get; set; }
+        public string Data { get; set; }
 
         // Foreign Key для Subgroups
         public int SubgroupId { get; set; }

@@ -30,24 +30,59 @@
     flex: 1 1 50%;
 }
 
-.grades-table table {
-    width: 100%;
-    border-collapse: collapse;
-}
+    .grades-table table {
+        width: 100%;
+        border-collapse: collapse;
+    }
 
-.grades-table th,
-.grades-table td {
-    padding: 15px;
-    border-bottom: 1px solid #ccc;
-}
+    .grades-table th {
+        padding: 15px;
+        border-bottom: 1px solid #ccc;
+        text-align: end;
+    }
+
+    .grades-table td {
+        padding: 15px;
+        border-bottom: 1px solid #ccc;
+    }
+
+        .grades-table td:first-child {
+            text-align: left;
+        }
+
+        .grades-table td:last-child {
+            text-align: right;
+        }
+
+    .grades-table th {
+        padding: 15px;
+        border-bottom: 1px solid #ccc;
+    }
+
+        .grades-table th:first-child {
+            text-align: left;
+        }
+
+        .grades-table th:last-child {
+            text-align: right;
+        }
+
+    .grades-table td:first-child {
+        text-align: left;
+    }
+
+    .grades-table td:last-child {
+        text-align: right;
+    }
+
 
 .latest-grades {
     background-color: #256489;
     color: white;
-    padding: 30px; 
+    padding: 30px;
     margin-bottom: 20px;
     border-radius: 10px;
-    flex: 1 1 45%; 
+    flex: 1 1 45%;
 }
 
 .grades-header {
@@ -76,4 +111,3 @@
 .account-content::-webkit-scrollbar-track {
     background: #f1f1f1;
 }
-

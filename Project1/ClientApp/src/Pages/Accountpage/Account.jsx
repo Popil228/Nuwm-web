@@ -4,7 +4,7 @@ import Footer from '../../Components/Footer/footer';
 import UserCard from '../../Components/Usercard/Usercard';
 import StudentList from '../../Components/Studentlist/Studentlist';
 import PointCard from '../../Components/Pointcard/Pointcard';
-//import Teachersetpage from '../Teachersetpage/Teachersetpage';
+import Teachersetpage from '../Teachersetpage/Teachersetpage';
 import profileimg from './../../img_src/account frame.svg';
 import './Account.css';
 
@@ -12,6 +12,8 @@ const AccountPage = () => {
 
     const [error, setError] = useState(null);
     const [userData, setUserData] = useState(null);
+    const [markStudentData, setMarkStudentData] = useState(null);
+    const [markGroupData, setMarkGroupData] = useState(null);
 
     useEffect(() => {
         // Отримуємо токен з localStorage
@@ -23,7 +25,7 @@ const AccountPage = () => {
         }
 
         // Використовуємо fetch для запиту до API
-        fetch('/api/usercard/data', {
+        fetch('/api/account/data', {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`,  // Додаємо токен в заголовок
@@ -42,14 +44,56 @@ const AccountPage = () => {
             .catch(error => {
                 setError(error.message);
             });
+
+        fetch('/api/account/student-total-scores', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`,  // Додаємо токен в заголовок
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch user data');
+                }
+                return response.json();
+            })
+            .then(data => {
+                setMarkStudentData(data);  // Встановлюємо отримані дані в стан
+            })
+            .catch(error => {
+                setError(error.message);
+            });
+
+        fetch('/api/account/group-student-total-scores', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`,  // Додаємо токен в заголовок
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch user data');
+                }
+                return response.json();
+            })
+            .then(data => {
+                setMarkGroupData(data);  // Встановлюємо отримані дані в стан
+            })
+            .catch(error => {
+                setError(error.message);
+            });
     }, []);
+
+    
 
     if (error) {
         return <div>Error: {error}</div>;
     }
 
     // Якщо дані ще не завантажені
-    if (!userData) {
+    if (!userData || !markStudentData || !markGroupData) {
         return <div>Loading...</div>;
     }
 
@@ -58,30 +102,20 @@ const AccountPage = () => {
     firstName: userData.name,
     lastName: userData.surName,
     middleName: userData.thirdName,
-    group: "",
-    institute: "",
-    course: "",
+    group: userData.group + " (" + userData.subgroup + ")",
+    institute: userData.institute,
+    course: userData.course,
   };
 
-  const students = [
-    { initials: "Бачманюк Д.О.", scores: 0 },
-    { initials: "Галенюк М.П.", scores: 0 },
-    { initials: "Парипа А.О.", scores: 0 },
-  ];
+const students = markGroupData.map(item => ({
+    initials: item.studentName,
+    scores: item.totalScore
+}));
 
-  const grades = [
-    { subject: 'Укр. мова', totalScore: 70 },
-    { subject: 'Математика', totalScore: 85 },
-    { subject: 'Програмування', totalScore: 95 },
-    { subject: 'Програмування', totalScore: 95 },
-    { subject: 'Програмування', totalScore: 95 },
-    { subject: 'Програмування', totalScore: 95 },
-    { subject: 'Програмування', totalScore: 95 },
-    { subject: 'Програмування', totalScore: 95 },
-    { subject: 'Програмування', totalScore: 95 },
-    { subject: 'Програмування', totalScore: 95 },
-    
-  ];
+  const grades = markStudentData.map(item => ({
+     subject: item.subjectName,
+     totalScore: item.value
+  }));
 
   return (
     <div className="account-page">
