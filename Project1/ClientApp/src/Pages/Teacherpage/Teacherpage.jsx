@@ -15,7 +15,6 @@ const TeacherPage = () => {
     const [date, setDate] = useState(null);
     const [logs, setLogs] = useState([]);
 
-    // Дані для форми
     const [groups, setGroups] = useState([]);
     const [subgroups, setSubgroups] = useState([]);
     const [pairNumbers, setPairNumbers] = useState([]);
@@ -27,16 +26,15 @@ const TeacherPage = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('/api/setschedule/data');
+                const response = await fetch('/api/setschedule/data', {
+                    method: 'POST'
+                });
 
-                // Перевірка на успішний статус відповіді
                 if (!response.ok) {
                     throw new Error(`Помилка сервера: ${response.statusText}`);
                 }
 
                 const data = await response.json();
-
-                // Оновлення стану
                 setGroups(data.groups);
                 setPairNumbers(data.pairNumbers);
                 setTypes(data.types);
@@ -48,14 +46,23 @@ const TeacherPage = () => {
         fetchData();
     }, []);
 
-    // Завантаження підгруп та викладачів, залежно від вибраної групи
+    // Завантаження підгруп та викладачів
     useEffect(() => {
         if (group) {
-            // Завантажуємо підгрупи для вибраної групи
-            const selectedGroupId = group.value;
             const fetchSubgroupsAndTeachers = async () => {
                 try {
-                    const response = await fetch(`/api/setschedule/subgroups-and-teachers?groupId=${selectedGroupId}`);
+                    const response = await fetch('/api/setschedule/subgroups_teachers', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ groupId: group.value }),
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`Помилка сервера: ${response.statusText}`);
+                    }
+
                     const data = await response.json();
                     setSubgroups(data.subgroups);
                     setTeachers(data.teachers);
@@ -71,16 +78,25 @@ const TeacherPage = () => {
         }
     }, [group]);
 
-    // Завантаження дисциплін, залежно від вибраного викладача
+    // Завантаження дисциплін
     useEffect(() => {
         if (teacher) {
-            // Завантажуємо дисципліни для вибраного викладача
-            const selectedTeacherId = teacher.value;
             const fetchSubjects = async () => {
                 try {
-                    const response = await fetch(`/api/setschedule/subjects?teacherId=${selectedTeacherId}`);
+                    const response = await fetch('/api/setschedule/subjects', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ teacherId: teacher.value }),
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`Помилка сервера: ${response.statusText}`);
+                    }
+
                     const data = await response.json();
-                    setSubjects(data.subjects);
+                    setSubjects(data);
                 } catch (error) {
                     console.error('Помилка завантаження дисциплін:', error);
                 }
@@ -115,8 +131,8 @@ const TeacherPage = () => {
         setPairNumber(null);
         setType(null);
         setSubject(null);
-        setClassroom('');
         setTeacher(null);
+        setClassroom('');
         setDate(null);
     };
 
@@ -167,15 +183,6 @@ const TeacherPage = () => {
                     />
                 </div>
                 <div className="form-group">
-                    <label>Кабінет</label>
-                    <input
-                        type="text"
-                        value={classroom}
-                        onChange={(e) => setClassroom(e.target.value)}
-                        placeholder="Введіть кабінет"
-                    />
-                </div>
-                <div className="form-group">
                     <label>Номер пари</label>
                     <Select
                         options={pairNumbers}
@@ -191,6 +198,15 @@ const TeacherPage = () => {
                         value={type}
                         onChange={setType}
                         placeholder="Оберіть вид заняття"
+                    />
+                </div>
+                <div className="form-group">
+                    <label>Кабінет</label>
+                    <input
+                        type="text"
+                        value={classroom}
+                        onChange={(e) => setClassroom(e.target.value)}
+                        placeholder="Введіть кабінет"
                     />
                 </div>
                 <div className="form-group">

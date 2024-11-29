@@ -17,11 +17,12 @@ namespace Project1.Controllers
         }
 
         // Отримання даних для форми
-        [HttpGet("data")]
+        [HttpPost("data")]
         public async Task<ActionResult<TeacherPageDto>> GetTeacherPageData()
         {
             try
             {
+                // Обробка запиту, якщо потрібно врахувати якісь додаткові параметри з тіла запиту
                 var groups = await _dbContext.Groups
                     .Select(g => new SelectItemDto
                     {
@@ -62,13 +63,13 @@ namespace Project1.Controllers
         }
 
         // Отримати підгрупи для вибраної групи
-        [HttpGet("subgroups/{groupId}")]
-        public async Task<ActionResult<List<SelectItemDto>>> GetSubgroupsForGroup(int groupId)
+        [HttpPost("subgroups_teachers")]
+        public async Task<ActionResult<List<SelectItemDto>>> GetSubgroupsForGroup([FromBody] GroupRequest groupRequest)
         {
             try
             {
                 var subgroups = await _dbContext.Subgroups
-                    .Where(s => s.GroupId == groupId)
+                    .Where(s => s.GroupId == groupRequest.GroupId)
                     .Select(s => new SelectItemDto
                     {
                         Value = s.Id.ToString(),
@@ -76,34 +77,21 @@ namespace Project1.Controllers
                     })
                     .ToListAsync();
 
-                return Json(subgroups);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Помилка сервера: {ex.Message}");
-            }
-        }
-
-        // Отримати викладачів для вибраної групи
-        [HttpGet("teachers/{groupId}")]
-        public async Task<ActionResult<List<SelectItemDto>>> GetTeachersForGroup(int groupId)
-        {
-            try
-            {
-                var teachers = await _dbContext.Teachers
-                    .Where(t => t.TeacherGroups.Any(tg => tg.GroupId == groupId))
-                    .Join(
-                        _dbContext.Persons,
-                        teacher => teacher.PersonId,
-                        person => person.Id,
-                        (teacher, person) => new SelectItemDto
-                        {
-                            Value = teacher.Id.ToString(),
-                            Label = $"{person.ThirdName} {person.Name} {person.SurName}"
-                        })
+                var teachers = await _dbContext.TeacherGroups
+                    .Where(tg => tg.GroupId == groupRequest.GroupId)  // Фільтруємо по GroupId
+                    .Include(tg => tg.Teacher)  // Завантажуємо викладачів, що належать до цієї групи
+                    .ThenInclude(teacher => teacher.Person)  // Завантажуємо пов'язану особу для кожного викладача
+                    .Select(tg => new SelectItemDto
+                    {
+                        Value = tg.Teacher.Id.ToString(),  // Отримуємо Id викладача
+                        Label = $"{tg.Teacher.Person.ThirdName} {tg.Teacher.Person.Name} {tg.Teacher.Person.SurName}"  // Формуємо строку з ПІБ викладача
+                    })
                     .ToListAsync();
 
-                return Json(teachers);
+
+                var result = new TeacherPageDto { Subgroups =  subgroups, Teachers = teachers };
+
+                return Json(result);
             }
             catch (Exception ex)
             {
@@ -112,13 +100,13 @@ namespace Project1.Controllers
         }
 
         // Отримати дисципліни для вибраного викладача
-        [HttpGet("subjects/{teacherId}")]
-        public async Task<ActionResult<List<SelectItemDto>>> GetSubjectsForTeacher(int teacherId)
+        [HttpPost("subjects")]
+        public async Task<ActionResult<List<SelectItemDto>>> GetSubjectsForTeacher([FromBody] TeacherRequest teacherRequest)
         {
             try
             {
                 var subjects = await _dbContext.Subjects
-                    .Where(s => s.TeacherId == teacherId)  // Використовуємо TeacherId для фільтрації
+                    .Where(s => s.TeacherId == teacherRequest.TeacherId)
                     .Select(s => new SelectItemDto
                     {
                         Value = s.Id.ToString(),
@@ -132,6 +120,15 @@ namespace Project1.Controllers
             {
                 return StatusCode(500, $"Помилка сервера: {ex.Message}");
             }
+        }
+        public class GroupRequest
+        {
+            public int GroupId { get; set; }
+        }
+
+        public class TeacherRequest
+        {
+            public int TeacherId { get; set; }
         }
     }
 }
