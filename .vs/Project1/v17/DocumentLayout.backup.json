@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|d:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0441\u0430\u0439\u0442\\project1\\project1\\clientapp\\src\\setupproxy.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|solutionrelative:project1\\clientapp\\src\\setupproxy.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|d:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0441\u0430\u0439\u0442\\project1\\project1\\clientapp\\src\\pages\\accountpage\\account.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|solutionrelative:project1\\clientapp\\src\\pages\\accountpage\\account.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|d:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0441\u0430\u0439\u0442\\project1\\project1\\clientapp\\src\\pages\\homepage\\homepage.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|solutionrelative:project1\\clientapp\\src\\pages\\homepage\\homepage.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|d:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0441\u0430\u0439\u0442\\project1\\project1\\clientapp\\src\\pages\\teacherpage\\teacherpage.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|solutionrelative:project1\\clientapp\\src\\pages\\teacherpage\\teacherpage.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|d:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0441\u0430\u0439\u0442\\project1\\project1\\clientapp\\src\\components\\schedulecard\\schedule.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|solutionrelative:project1\\clientapp\\src\\components\\schedulecard\\schedule.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|d:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0441\u0430\u0439\u0442\\project1\\project1\\clientapp\\src\\setupproxy.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|solutionrelative:project1\\clientapp\\src\\setupproxy.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|d:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0441\u0430\u0439\u0442\\project1\\project1\\controllers\\setschedulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|solutionrelative:project1\\controllers\\setschedulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|d:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0441\u0430\u0439\u0442\\project1\\project1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -30,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,52 +38,49 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Account.jsx",
               "DocumentMoniker": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\ClientApp\\src\\Pages\\Accountpage\\Account.jsx",
               "RelativeDocumentMoniker": "Project1\\ClientApp\\src\\Pages\\Accountpage\\Account.jsx",
               "ToolTip": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\ClientApp\\src\\Pages\\Accountpage\\Account.jsx",
               "RelativeToolTip": "Project1\\ClientApp\\src\\Pages\\Accountpage\\Account.jsx",
-              "ViewState": "AgIAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAAAIYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2024-11-27T14:00:47.665Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Schedule.jsx",
-              "DocumentMoniker": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\ClientApp\\src\\Components\\Schedulecard\\Schedule.jsx",
-              "RelativeDocumentMoniker": "Project1\\ClientApp\\src\\Components\\Schedulecard\\Schedule.jsx",
-              "ToolTip": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\ClientApp\\src\\Components\\Schedulecard\\Schedule.jsx",
-              "RelativeToolTip": "Project1\\ClientApp\\src\\Components\\Schedulecard\\Schedule.jsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2024-11-27T13:58:08.004Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Homepage.jsx",
-              "DocumentMoniker": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\ClientApp\\src\\Pages\\HomePage\\Homepage.jsx",
-              "RelativeDocumentMoniker": "Project1\\ClientApp\\src\\Pages\\HomePage\\Homepage.jsx",
-              "ToolTip": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\ClientApp\\src\\Pages\\HomePage\\Homepage.jsx",
-              "RelativeToolTip": "Project1\\ClientApp\\src\\Pages\\HomePage\\Homepage.jsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2024-11-27T13:56:55.018Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-29T11:46:14.094Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "SetScheduleController.cs",
+              "DocumentMoniker": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\Controllers\\SetScheduleController.cs",
+              "RelativeDocumentMoniker": "Project1\\Controllers\\SetScheduleController.cs",
+              "ToolTip": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\Controllers\\SetScheduleController.cs",
+              "RelativeToolTip": "Project1\\Controllers\\SetScheduleController.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwCgAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-29T09:40:21.192Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Teacherpage.jsx",
+              "DocumentMoniker": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\ClientApp\\src\\Pages\\Teacherpage\\Teacherpage.jsx",
+              "RelativeDocumentMoniker": "Project1\\ClientApp\\src\\Pages\\Teacherpage\\Teacherpage.jsx",
+              "ToolTip": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\ClientApp\\src\\Pages\\Teacherpage\\Teacherpage.jsx",
+              "RelativeToolTip": "Project1\\ClientApp\\src\\Pages\\Teacherpage\\Teacherpage.jsx",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAADkAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2024-11-28T08:18:45.601Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "setupProxy.js",
               "DocumentMoniker": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\ClientApp\\src\\setupProxy.js",
               "RelativeDocumentMoniker": "Project1\\ClientApp\\src\\setupProxy.js",
               "ToolTip": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\ClientApp\\src\\setupProxy.js",
               "RelativeToolTip": "Project1\\ClientApp\\src\\setupProxy.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2024-11-27T12:04:20.99Z",
               "EditorCaption": ""
@@ -96,10 +93,9 @@
               "RelativeDocumentMoniker": "Project1\\Program.cs",
               "ToolTip": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\Program.cs",
               "RelativeToolTip": "Project1\\Program.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAADwvx0AAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAAGYAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T09:50:57.89Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-25T09:50:57.89Z"
             }
           ]
         }
