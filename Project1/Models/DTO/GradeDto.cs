@@ -6,4 +6,10 @@
         public int SubjectId { get; set; }
         public float Value { get; set; }
     }
+
+    public class GradeDeleteDto
+    {
+        public int StudentId { get; set; }
+        public int SubjectId { get; set; }
+    }
 }

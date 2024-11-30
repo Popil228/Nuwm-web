@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Project1.Data;
-using Project1.Models.DTO;
 using Project1.Models.Entitys;
 using System.IdentityModel.Tokens.Jwt;
+using Project1.Models.DTO;
 
 namespace Project1.Controllers
 {

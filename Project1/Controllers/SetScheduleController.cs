@@ -2,6 +2,9 @@
 using Project1.Data;
 using Microsoft.EntityFrameworkCore;
 using static Project1.Models.DTO.SetScheduleDto;
+using static Project1.Models.DTO.RequestDto;
+using Project1.Models.DTO;
+using Project1.Models.Entitys;
 
 namespace Project1.Controllers
 {
@@ -121,14 +124,72 @@ namespace Project1.Controllers
                 return StatusCode(500, $"Помилка сервера: {ex.Message}");
             }
         }
-        public class GroupRequest
+
+        [HttpPost("schedule")]
+        public async Task<ActionResult> AddSchedule([FromBody] ScheduleFormDto scheduleData)
         {
-            public int GroupId { get; set; }
+            try
+            {
+                var subgroup = scheduleData.SubgroupId.HasValue ? await _dbContext.Subgroups.FindAsync(scheduleData.SubgroupId.Value) : null;
+                var subject = await _dbContext.Subjects.FindAsync(scheduleData.SubjectId);
+                var pairNumber = await _dbContext.NumParas.FindAsync(scheduleData.NumParaId);
+                var type = await _dbContext.TypeParas.FindAsync(scheduleData.TypeParaId);
+
+                if ( subject == null || pairNumber == null || type == null || subgroup == null)
+                {
+                    return BadRequest("Некоректні дані для створення розкладу");
+                }
+
+                // Створення нового запису в таблиці розкладу
+                var newSchedule = new Schedule
+                {
+                    SubgroupId = (int)scheduleData.SubgroupId,
+                    SubjectId = scheduleData.SubjectId,
+                    NumParaId = scheduleData.NumParaId,
+                    TypeParaId = scheduleData.TypeParaId,
+                    Cabinet = scheduleData.Cabinet,
+                    Data = scheduleData.Data
+                };
+
+                // Додавання розкладу в базу даних
+                _dbContext.Schedules.Add(newSchedule);
+
+                // Збереження змін у БД
+                await _dbContext.SaveChangesAsync();
+
+                return Json("Розклад успішно додано");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Помилка сервера: {ex.Message}");
+            }
         }
 
-        public class TeacherRequest
+        [HttpDelete("delete")]
+        public async Task<ActionResult> DeleteLastSchedule()
         {
-            public int TeacherId { get; set; }
+            try
+            {
+                // Отримуємо останній доданий розклад
+                var lastSchedule = await _dbContext.Schedules
+                    .OrderByDescending(s => s.Id)  // або s.CreatedAt, якщо таке поле є
+                    .FirstOrDefaultAsync();
+
+                if (lastSchedule == null)
+                {
+                    return NotFound("Розклад не знайдений.");
+                }
+
+                // Видаляємо останній розклад
+                _dbContext.Schedules.Remove(lastSchedule);
+                await _dbContext.SaveChangesAsync();
+
+                return Json("Останній розклад успішно видалено.");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Помилка сервера: {ex.Message}");
+            }
         }
     }
 }

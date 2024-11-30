@@ -108,8 +108,42 @@ const TeacherPage = () => {
         }
     }, [teacher]);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if (!group || !subgroup || !pairNumber || !type || !subject || !teacher || !classroom || !date) {
+            alert('Будь ласка, заповніть усі поля форми.');
+            return;
+        }
+
+        const scheduleData = {
+            SubgroupId: subgroup?.value || null,
+            NumParaId: pairNumber.value,
+            TypeParaId: type.value,
+            SubjectId: subject.value,
+            Cabinet: classroom,
+            Data: date.toISOString().split('T')[0]
+        };
+
+        try {
+            const response = await fetch('/api/setschedule/schedule', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(scheduleData),
+            });
+
+            if (!response.ok) {
+                throw new Error('Помилка при додаванні розкладу');
+            }
+
+            const result = await response.json();
+            alert(result);
+        } catch (error) {
+            console.error('Помилка:', error);
+            alert('Сталася помилка при додаванні розкладу');
+        }
 
         const logEntry = {
             group: group?.label || 'Не вказано',
@@ -136,7 +170,24 @@ const TeacherPage = () => {
         setDate(null);
     };
 
-    const deleteLastLog = () => {
+    const deleteLastLog = async () => {
+
+        try {
+            const response = await fetch('/api/setschedule/delete', {
+                method: 'DELETE', // Використовуємо метод DELETE
+            });
+
+            if (!response.ok) {
+                throw new Error('Помилка при видаленні останнього розкладу');
+            }
+
+            const result = await response.json();
+            alert(result); // Виводимо повідомлення про успішне видалення
+        } catch (error) {
+            console.error('Помилка:', error);
+            alert('Сталася помилка при видаленні останнього розкладу');
+        }
+
         setLogs((prevLogs) => prevLogs.slice(0, prevLogs.length - 1));
     };
 
@@ -214,7 +265,7 @@ const TeacherPage = () => {
                     <DatePicker
                         selected={date}
                         onChange={(selectedDate) => setDate(selectedDate)}
-                        dateFormat="dd/MM/yyyy"
+                        dateFormat="dd.MM.yyyy"
                         placeholderText="Оберіть дату"
                     />
                 </div>
