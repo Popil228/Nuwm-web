@@ -1,4 +1,4 @@
-.user-info {
+.user-info-t {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -9,30 +9,30 @@
     margin-bottom: 20px;
 }
 
-.user-avatar {
+.user-avatar-t {
     margin-right: 20px;
 }
 
-.user-avatar img {
+.user-avatar-t img {
     width: 38px;
     height: 38px;
     border: 2px solid #fff;
     border-radius: 50%;
 }
 
-.user-details {
+.user-details-t {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.user-details p {
+.user-details-t p {
     margin: 10px 20px 10px 0;
 }
 
 
 @media (max-width: 768px) {
-    .user-avatar img {
+    .user-avatar-t img {
         width: 170px;
         height: auto;
         border: 2px solid #fff;

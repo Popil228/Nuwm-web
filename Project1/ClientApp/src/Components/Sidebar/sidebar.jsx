@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './sidebar.css';
+import { useNavigate } from 'react-router-dom';
 
 const generateWeekDates = (startDate) => {
   const week = [];
@@ -11,7 +12,9 @@ const generateWeekDates = (startDate) => {
   return week;
 };
 
-const Sidebar = () => {
+const Sidebar = ({ selectedDate, setSelectedDate }) => {
+
+
   const getMondayOfCurrentWeek = (date) => {
     const day = date.getDay();
     const diff = date.getDate() - day + (day === 0 ? -6 : 1);
@@ -20,7 +23,6 @@ const Sidebar = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const [currentWeekStart, setCurrentWeekStart] = useState(getMondayOfCurrentWeek(new Date()));
-  const [selectedDate, setSelectedDate] = useState(null);
   const today = new Date();
 
   const toggleSidebar = () => {

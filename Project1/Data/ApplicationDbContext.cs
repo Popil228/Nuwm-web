@@ -109,6 +109,13 @@ namespace Project1.Data
                 .HasForeignKey(sch => sch.SubjectId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            // Налаштування зв'язку Subgroup ↔ Schedule
+            modelBuilder.Entity<Schedule>()
+                .HasOne(s => s.Subgroup) // Schedule має одну Subgroup
+                .WithMany(sg => sg.Schedules) // Subgroup має багато Schedule
+                .HasForeignKey(s => s.SubgroupId) // Зовнішній ключ у Schedule
+                .OnDelete(DeleteBehavior.Cascade); // Каскадне видалення
+
         }
 
         public ApplicationDbContext(DbContextOptions options, IOptions<OperationalStoreOptions> operationalStoreOptions)

@@ -3,6 +3,8 @@ import Select from 'react-select';
 import UsercardTeacher from '../../Components/UsercardTeacher/UsercardTeacher';
 import profileimg from './../../img_src/account frame.svg';
 import './Teachersetpage.css';
+import Footer from '../../Components/Footer/footer';
+import Header from '../../Components/Header/header';
 
 const Teachersetpage = () => {
     const [groups, setGroups] = useState([]);
@@ -167,7 +169,9 @@ const Teachersetpage = () => {
     };
 
     return (
+        
         <div className="ts-page">
+            <Header />
             <main className="ts-content">
                 <div className="ts-container">
                     <UsercardTeacher user={user} />
@@ -234,7 +238,9 @@ const Teachersetpage = () => {
                     </div>
                 </div>
             </main>
+            <Footer/>
         </div>
+        
     );
 };
 

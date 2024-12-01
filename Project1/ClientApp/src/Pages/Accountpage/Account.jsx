@@ -4,9 +4,10 @@ import Footer from '../../Components/Footer/footer';
 import UserCard from '../../Components/Usercard/Usercard';
 import StudentList from '../../Components/Studentlist/Studentlist';
 import PointCard from '../../Components/Pointcard/Pointcard';
-import Teachersetpage from '../Teachersetpage/Teachersetpage';
 import profileimg from './../../img_src/account frame.svg';
+import UserCardTeacher from '../../Components/UsercardTeacher/UsercardTeacher';
 import './Account.css';
+
 
 const AccountPage = () => {
 
@@ -86,7 +87,7 @@ const AccountPage = () => {
             });
     }, []);
 
-    
+
 
     if (error) {
         return <div>Error: {error}</div>;
@@ -97,40 +98,39 @@ const AccountPage = () => {
         return <div>Loading...</div>;
     }
 
-  const user = {
-    avatar: profileimg,
-    firstName: userData.name,
-    lastName: userData.surName,
-    middleName: userData.thirdName,
-    group: userData.group + " (" + userData.subgroup + ")",
-    institute: userData.institute,
-    course: userData.course,
-  };
+    const user = {
+        avatar: profileimg,
+        firstName: userData.name,
+        lastName: userData.surName,
+        middleName: userData.thirdName,
+        group: userData.group + " (" + userData.subgroup + ")",
+        institute: userData.institute,
+        course: userData.course,
+    };
 
-const students = markGroupData.map(item => ({
-    initials: item.studentName,
-    scores: item.totalScore
-}));
+    const students = markGroupData.map(item => ({
+        initials: item.studentName,
+        scores: item.totalScore
+    }));
 
-  const grades = markStudentData.map(item => ({
-     subject: item.subjectName,
-     totalScore: item.value
-  }));
+    const grades = markStudentData.map(item => ({
+        subject: item.subjectName,
+        totalScore: item.value
+    }));
 
-  return (
-    <div className="account-page">
-      <Header />
-      <main className="account-content">
-        <div className="account-container">
-          <UserCard user={user} />
-          <StudentList students={students} />
-          <PointCard grades={grades} /> 
-          {/*<Teachersetpage />  */}
+    return (
+        <div className="account-page">
+            <Header />
+            <main className="account-content">
+                <div className="account-container">
+                    <UserCard user={user} />
+                    <StudentList students={students} />
+                    <PointCard grades={grades} />
+                </div>
+            </main>
+            <Footer />
         </div>
-      </main>
-      <Footer />
-    </div>
-  );
+    );
 };
 
 export default AccountPage;

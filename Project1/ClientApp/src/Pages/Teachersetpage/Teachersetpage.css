@@ -4,7 +4,12 @@
 }
 
 .ts-content {
+    flex-grow: 1;
     display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 90px 0;
+    overflow-y: auto;
 }
 
 .ts-container {
@@ -12,7 +17,7 @@
     justify-content: space-between;
     max-width: 1400px;
     flex-wrap: wrap;
-    width: 100%;
+    gap: 20px;
 }
 
 .ts-form button {

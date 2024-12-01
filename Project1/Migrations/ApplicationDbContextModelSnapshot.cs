@@ -733,7 +733,7 @@ namespace Project1.Migrations
                         .IsRequired();
 
                     b.HasOne("Project1.Models.Entitys.Subgroup", "Subgroup")
-                        .WithMany()
+                        .WithMany("Schedules")
                         .HasForeignKey("SubgroupId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -870,6 +870,8 @@ namespace Project1.Migrations
 
             modelBuilder.Entity("Project1.Models.Entitys.Subgroup", b =>
                 {
+                    b.Navigation("Schedules");
+
                     b.Navigation("Students");
                 });
 
