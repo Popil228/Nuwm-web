@@ -116,6 +116,11 @@ namespace Project1.Data
                 .HasForeignKey(s => s.SubgroupId) // Зовнішній ключ у Schedule
                 .OnDelete(DeleteBehavior.Cascade); // Каскадне видалення
 
+            // Teacher ↔ Subject (1 to many)
+            modelBuilder.Entity<Subject>()
+                .HasOne(s => s.Teacher) // Кожен Subject має одного Teacher
+                .WithMany(t => t.Subjects) // Кожен Teacher може мати багато Subject
+                .HasForeignKey(s => s.TeacherId); // Встановлюємо зовнішній ключ в Subject
         }
 
         public ApplicationDbContext(DbContextOptions options, IOptions<OperationalStoreOptions> operationalStoreOptions)

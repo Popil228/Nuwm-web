@@ -5,6 +5,7 @@ const target = env.ASPNETCORE_HTTPS_PORT ? `https://localhost:${env.ASPNETCORE_H
     env.ASPNETCORE_URLS ? env.ASPNETCORE_URLS.split(';')[0] : 'http://localhost:50651';
 
 const context = [
+    "/api/role/role",
     "/api/getschedule/date",
     "/api/setschedule/delete",
     "/api/setschedule/schedule",
