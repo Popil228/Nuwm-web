@@ -44,6 +44,13 @@ namespace Project1.Data
                 .WithMany(g => g.Students)
                 .HasForeignKey(s => s.GroupId);
 
+            // Students ↔ Subgroups (Many to One)
+            modelBuilder.Entity<Student>()
+                .HasOne(s => s.Subgroup) // Кожен Student належить до однієї Subgroup
+                .WithMany(sg => sg.Students) // Кожна Subgroup може мати багато Students
+                .HasForeignKey(s => s.SubgroupId) // Зовнішній ключ у Student
+                .OnDelete(DeleteBehavior.Restrict);
+
             // Students ↔ Person
             modelBuilder.Entity<Student>()
                 .HasOne(s => s.Person)

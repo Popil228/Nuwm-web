@@ -46,17 +46,19 @@ namespace Project1.Controllers
             var student = await _context.Persons
                 .Where(p => p.Email == emailClaim)  // Фільтруємо по Email
                 .Include(p => p.Student)            // Підключаємо студента
-                    .ThenInclude(s => s.Group)      // Підключаємо групу студента
-                        .ThenInclude(g => g.Subgroups)  // Підключаємо підгрупи
-                            .ThenInclude(sg => sg.Schedules) // Завантажуємо розклад підгрупи
+                    .ThenInclude(s => s.Subgroup)      // Підключаємо групу студента
+                        .ThenInclude(sg => sg.Group)
+                .Include(p => p.Student)
+                    .ThenInclude(s => s.Subgroup)
+                        .ThenInclude(sg => sg.Schedules) // Завантажуємо розклад підгрупи
                             .ThenInclude(sch => sch.NumPara)
-                                .ThenInclude(sg => sg.Schedules) // Завантажуємо розклад підгрупи
-                                .ThenInclude(sch => sch.TypePara)
-                                    .ThenInclude(sg => sg.Schedules)
-                                    .ThenInclude(sch => sch.Subject)  // Завантажуємо предмети
-                                        .ThenInclude(sub => sub.Teacher) // Завантажуємо викладача
-                                            .ThenInclude(tchr => tchr.Person)  // Завантажуємо ПІБ викладача
-                .Where(p => p.Student.Group.Subgroups.Any(sg => sg.Schedules.Any(schedule => schedule.Data == Data))) // Фільтрація по Data для розкладу
+                        .ThenInclude(sg => sg.Schedules) // Завантажуємо розклад підгрупи
+                            .ThenInclude(sch => sch.TypePara)
+                        .ThenInclude(sg => sg.Schedules)
+                            .ThenInclude(sch => sch.Subject)  
+                                .ThenInclude(sub => sub.Teacher) // Завантажуємо викладача
+                                    .ThenInclude(tchr => tchr.Person)  // Завантажуємо ПІБ викладача
+                //.Where(p => p.Student.Group.Subgroups.Any(sg => sg.Schedules.Any(schedule => schedule.Data == Data))) // Фільтрація по Data для розкладу
                 .FirstOrDefaultAsync();
 
 
@@ -66,22 +68,19 @@ namespace Project1.Controllers
                 }
 
                 // Витягуємо розклад для студента
-                var scheduleDtos = student.Student
-                    .Group // Отримуємо групу студента
-                    .Subgroups // Отримуємо всі підгрупи
-                    .SelectMany(sg => sg.Schedules) // Отримуємо всі записи розкладу
-                    .Where(schedule => schedule.Data == Data) // Фільтруємо по датах
+                var scheduleDtos = student.Student.Subgroup.Schedules
+                    .Where(schedule => schedule.Data == Data) // Фільтруємо за датою
                     .Select(schedule => new GetScheduleDto
                     {
                         NumParaID = schedule.NumPara.Number,
                         NumPara = schedule.NumPara.Time, // Час пари
-                        Groups = schedule.Subgroup.Group.Name,
+                        Groups = schedule.Subgroup.Group.Name, // Назва групи
                         TypePara = schedule.TypePara.Title, // Тип пари
                         Cabinet = schedule.Cabinet.ToString(), // Кабінет
                         Subject = schedule.Subject.Title, // Назва предмету
                         TeacherName = $"{schedule.Subject.Teacher.Person.SurName} {schedule.Subject.Teacher.Person.Name} {schedule.Subject.Teacher.Person.ThirdName}".Trim() // ПІБ викладача
                     })
-                    .OrderBy(dto => dto.NumParaID) // Сортуємо за NumParaID
+                    .OrderBy(dto => dto.NumParaID) // Сортуємо за номером пари
                     .ToList();
 
                 if (scheduleDtos == null)
