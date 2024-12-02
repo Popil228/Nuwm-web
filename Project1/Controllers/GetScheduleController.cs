@@ -74,7 +74,13 @@ namespace Project1.Controllers
                 .OrderBy(dto => dto.NumParaID) // Сортуємо за NumParaID
                 .ToList();
 
-            return Json(scheduleDtos);
+            if(scheduleDtos == null)
+            {
+                return Json("На цей день розкладу немає");
+            }
+            else{
+                return Json(scheduleDtos);
+            }
         }
 
     }

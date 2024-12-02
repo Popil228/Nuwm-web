@@ -47,13 +47,13 @@ namespace Project1.Data
             // Students ↔ Person
             modelBuilder.Entity<Student>()
                 .HasOne(s => s.Person)
-                .WithOne()
+                .WithOne(p => p.Student)
                 .HasForeignKey<Student>(s => s.PersonId);
 
             // Teachers ↔ Person
             modelBuilder.Entity<Teacher>()
                 .HasOne(t => t.Person)
-                .WithOne()
+                .WithOne(p => p.Teacher)
                 .HasForeignKey<Teacher>(t => t.PersonId);
 
             // Teachers ↔ Groups через TeacherGroups
