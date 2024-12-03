@@ -103,6 +103,7 @@ using (var scope = app.Services.CreateAsyncScope())
     {
         { "galenukm@gmail.com", new[] { "Admin" } },
         { "haleniuk_ak23@nuwm.edu.ua", new[] { "Student" } },
+        { "bachmaniuk_ak23@nuwm.edu.ua", new[] { "Student" } },
         { "m.v.boichura@nuwm.edu.ua", new[] { "Teacher" } },
         { "a.v.shatna@nuwm.edu.ua", new[] { "Teacher" } },
         { "a.i.sydor@nuwm.edu.ua", new[] { "Teacher" } },
