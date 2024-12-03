@@ -4,6 +4,9 @@ using Project1.Data;
 using Project1.Models.Entitys;
 using System.IdentityModel.Tokens.Jwt;
 using Project1.Models.DTO;
+using System.Text.RegularExpressions;
+using Org.BouncyCastle.Asn1.Ocsp;
+using static Project1.Models.DTO.RequestDto;
 
 namespace Project1.Controllers
 {
@@ -55,30 +58,86 @@ namespace Project1.Controllers
         [HttpGet("groups")]
         public async Task<IActionResult> GetGroups()
         {
-            var groups = await _context.Groups
-                .Select(g => new { g.Id, g.Name })
-                .ToListAsync();
-            return Json(groups);
-        }
+            var token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
 
-        [HttpGet("students")]
-        public async Task<IActionResult> GetStudents()
-        {
-            var students = await _context.Students
-                .Include(s => s.Person)
-                .Select(s => new { s.Id, Name = $"{s.Person.SurName} {s.Person.Name} {s.Person.ThirdName}" })
+            if (string.IsNullOrEmpty(token))
+            {
+                return Unauthorized("Authorization token is missing.");
+            }
+
+            try
+            {
+            var handler = new JwtSecurityTokenHandler();
+            var jwtToken = handler.ReadJwtToken(token);
+            var emailClaim = jwtToken.Claims.FirstOrDefault(c => c.Type == "email")?.Value;
+
+            if (emailClaim == null)
+            {
+                return Unauthorized("Email not found in token.");
+            }
+
+            var groups = await _context.Persons
+                .Where(p => p.Email == emailClaim)
+                .Include(p => p.Teacher)
+                    .ThenInclude(t => t.TeacherGroups)
+                        .ThenInclude(tg => tg.Group) // Завантажуємо групи, пов’язані з викладачем
+                .SelectMany(p => p.Teacher.TeacherGroups
+                .Select(tg => new { tg.Group.Id,tg.Group.Name}))
                 .ToListAsync();
-            return Json(students);
+                return Ok(groups);
+            }catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"An error occurred: {ex.Message}");
+            }
         }
 
         [HttpGet("subjects")]
         public async Task<IActionResult> GetSubjects()
         {
-            var subjects = await _context.Subjects
-                .Select(s => new { s.Id, s.Title })
-                .ToListAsync();
+
+            var token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+            var handler = new JwtSecurityTokenHandler();
+            var jwtToken = handler.ReadJwtToken(token);
+            var emailClaim = jwtToken.Claims.FirstOrDefault(c => c.Type == "email")?.Value;
+
+            if (emailClaim == null)
+            {
+                return Unauthorized("Email not found in token.");
+            }
+
+            var subjects = await _context.Persons
+                .Where(p => p.Email == emailClaim)
+                .Include(p => p.Teacher)
+                    .ThenInclude(t => t.Subjects) // Беремо всі предмети від усіх викладачів
+                     .SelectMany(p => p.Teacher.Subjects) // Витягуємо предмети викладача
+                     .Select(s => new { s.Id, s.Title })
+                     .Distinct() // Усуваємо дублікати, якщо є
+                     .ToListAsync();
             return Json(subjects);
         }
+
+        [HttpGet("allStudents")]
+        public async Task<IActionResult> GetAllStudents()
+        {
+            var allStudents = await _context.Students
+                .Include(s => s.Person)
+                .Select(s => new { s.Id, Name = $"{s.Person.SurName} {s.Person.Name} {s.Person.ThirdName}".Trim() })
+                .ToListAsync();
+
+                    return Json(allStudents);
+        }
+
+        [HttpPost("students")]
+        public async Task<IActionResult> GetStudents([FromBody] GroupRequest groupRequest)
+        {
+            var students = await _context.Students
+                .Where(s => s.GroupId == groupRequest.GroupId)
+                .Include(s => s.Person)
+                .Select(s => new { s.Id,  Name = $"{s.Person.SurName} {s.Person.Name} {s.Person.ThirdName}".Trim() })
+                .ToListAsync();
+
+                    return Json(students);
+                }
 
         [HttpPost("add-grade")]
         public async Task<IActionResult> AddGrade([FromBody] GradeDto gradeDto)

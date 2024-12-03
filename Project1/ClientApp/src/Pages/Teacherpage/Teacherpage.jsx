@@ -52,6 +52,8 @@ const TeacherPage = () => {
     // Завантаження підгруп та викладачів
     useEffect(() => {
         if (group) {
+            setSubgroup(null)
+            setTeacher(null)
             const fetchSubgroupsAndTeachers = async () => {
                 try {
                     const response = await fetch('/api/setschedule/subgroups_teachers', {
@@ -84,6 +86,7 @@ const TeacherPage = () => {
     // Завантаження дисциплін
     useEffect(() => {
         if (teacher) {
+            setSubject(null)
             const fetchSubjects = async () => {
                 try {
                     const response = await fetch('/api/setschedule/subjects', {

@@ -17,6 +17,33 @@ const Teachersetpage = () => {
     const [grades, setGrades] = useState([]);
     const [error, setError] = useState(null);
     const [userData, setUserData] = useState(null);
+    const [allStudentsDel, setAllStudentsDel] = useState([]);
+
+    useEffect(() => {
+            const fetchAllStudents = async () => {
+                try {
+                    const response = await fetch('/api/teacheraccount/allStudents');
+
+                    if (!response.ok) {
+                        const errorData = await response.json();
+                        console.error('Error:', errorData);
+                        throw new Error('Failed to fetch students');
+                    }
+
+                    const allStudentsData = await response.json();
+                    setAllStudentsDel(allStudentsData.map(student => ({
+                        value: student.id,
+                        label: student.name,
+                    })));
+
+                } catch (err) {
+                    setError('Failed to load all students');
+                }
+            };
+
+            fetchAllStudents();
+       
+    }, []);
 
     // Завантаження даних користувача
     useEffect(() => {
@@ -50,20 +77,17 @@ const Teachersetpage = () => {
             try {
                 const token = localStorage.getItem('authToken');
 
-                const [groupsRes, studentsRes, subjectsRes] = await Promise.all([
-                    fetch('/api/teacheraccount/groups', { headers: { Authorization: `Bearer ${token}` } }),
-                    fetch('/api/teacheraccount/students', { headers: { Authorization: `Bearer ${token}` } }),
-                    fetch('/api/teacheraccount/subjects', { headers: { Authorization: `Bearer ${token}` } }),
-                ]);
-
-                const [groupsData, studentsData, subjectsData] = await Promise.all([
-                    groupsRes.json(),
-                    studentsRes.json(),
-                    subjectsRes.json(),
-                ]);
+                const groupsRes = await fetch('/api/teacheraccount/groups', {
+                    headers: { Authorization: `Bearer ${token}` }
+                });
+                const groupsData = await groupsRes.json();
+                
+                const subjectsRes = await fetch('/api/teacheraccount/subjects', {
+                    headers: { Authorization: `Bearer ${token}` }
+                });
+                const subjectsData = await subjectsRes.json();
 
                 setGroups(groupsData.map(group => ({ value: group.id, label: group.name })));
-                setStudents(studentsData.map(student => ({ value: student.id, label: student.name })));
                 setSubjects(subjectsData.map(subject => ({ value: subject.id, label: subject.title })));
             } catch (err) {
                 setError('Failed to load data');
@@ -72,6 +96,45 @@ const Teachersetpage = () => {
 
         fetchData();
     }, []);
+
+    useEffect(() => {
+        if (group) {
+            setStudent(null);
+            const fetchStudents = async () => {
+                try {
+                    const response = await fetch('/api/teacheraccount/students', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ groupId: group.value }),
+                    });
+
+                    if (!response.ok) {
+                        const errorData = await response.json();
+                        console.error('Error:', errorData);
+                        throw new Error('Failed to fetch students');
+                    }
+                    
+                    const studentsData = await response.json();
+                    console.log('Received students data:', studentsData);
+                    console.log(students);
+                    setStudents(studentsData.map(student => ({
+                        value: student.id,
+                        label: student.name,
+                    })));
+                    console.log(students);
+                    
+                } catch (err) {
+                    setError('Failed to load students');
+                }
+            };
+
+            fetchStudents();
+        } else {
+            setStudents([]); // Скидаємо студентів, якщо група не вибрана
+        }
+    }, [group]);
 
     if (error) {
         return <div>Error: {error}</div>;
@@ -93,12 +156,10 @@ const Teachersetpage = () => {
 
         if (group && student && subject && score) {
             try {
-                const token = localStorage.getItem('authToken');
 
                 const response = await fetch('/api/teacheraccount/add-grade', {
                     method: 'POST',
                     headers: {
-                        'Authorization': `Bearer ${token}`,
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
@@ -137,21 +198,21 @@ const Teachersetpage = () => {
     const handleDeleteLastLog = async () => {
         if (grades.length > 0) {
             const lastGrade = grades[grades.length - 1];
-
+            console.log(lastGrade);
+            console.log(students);
             try {
-                const token = localStorage.getItem('authToken');
 
                 const response = await fetch('/api/teacheraccount/delete-grade', {
                     method: 'DELETE',
                     headers: {
-                        'Authorization': `Bearer ${token}`,
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        studentId: students.find(s => s.label === lastGrade.student)?.value,
+                        studentId: allStudentsDel.find(s => s.label === lastGrade.student)?.value,
                         subjectId: subjects.find(s => s.label === lastGrade.subject)?.value,
                     }),
                 });
+
 
                 if (!response.ok) {
                     throw new Error('Failed to delete grade');
@@ -193,6 +254,7 @@ const Teachersetpage = () => {
                                     value={student}
                                     onChange={setStudent}
                                     placeholder="Оберіть студента"
+                                    isDisabled={!group}
                                 />
                             </div>
                             <div className="form-group">
