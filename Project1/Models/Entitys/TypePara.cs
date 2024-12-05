@@ -3,9 +3,9 @@
     public class TypePara
     {
         public int Id { get; set; }
-        public string Title { get; set; }
+        public string? Title { get; set; }
 
         // Навігаційна властивість для зв'язку з Schedule
-        public ICollection<Schedule> Schedules { get; set; }
+        public ICollection<Schedule>? Schedules { get; set; }
     }
 }

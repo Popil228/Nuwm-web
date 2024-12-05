@@ -8,8 +8,8 @@
         public int GroupId { get; set; }
 
         public Group? Group { get; set; }
-        public ICollection<Student> Students { get; set; } = new List<Student>();
-        public ICollection<Schedule> Schedules { get; set; }
+        public ICollection<Student>? Students { get; set; } = new List<Student>();
+        public ICollection<Schedule>? Schedules { get; set; }
 
     }
 }

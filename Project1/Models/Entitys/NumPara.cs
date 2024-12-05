@@ -7,7 +7,7 @@
         public string Time { get; set; }
 
         // Навігаційна властивість для зв'язку з Schedule
-        public ICollection<Schedule> Schedules { get; set; }
+        public ICollection<Schedule>? Schedules { get; set; }
     }
 
 }

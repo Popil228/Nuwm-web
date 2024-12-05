@@ -7,6 +7,6 @@
         public int TypeParaId { get; set; }
         public int SubjectId { get; set; }
         public string? Cabinet { get; set; }
-        public string Data { get; set; }
+        public string? Data { get; set; }
     }
 }
