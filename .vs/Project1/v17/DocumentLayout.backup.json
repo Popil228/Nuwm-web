@@ -1,20 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|d:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0441\u0430\u0439\u0442\\project1\\project1\\clientapp\\public\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|solutionrelative:project1\\clientapp\\public\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|d:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0441\u0430\u0439\u0442\\project1\\project1\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|solutionrelative:project1\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|d:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0441\u0430\u0439\u0442\\project1\\project1\\clientapp\\src\\pages\\accountpage\\account.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|solutionrelative:project1\\clientapp\\src\\pages\\accountpage\\account.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -22,49 +9,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{0174dea2-fdbe-4ef1-8f99-c0beae78880f}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "index.html",
-              "DocumentMoniker": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\ClientApp\\public\\index.html",
-              "RelativeDocumentMoniker": "Project1\\ClientApp\\public\\index.html",
-              "ToolTip": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\ClientApp\\public\\index.html",
-              "RelativeToolTip": "Project1\\ClientApp\\public\\index.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-12-06T10:12:32.59Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "Project1\\Controllers\\AccountController.cs",
-              "ToolTip": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "Project1\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAowDsAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-06T10:04:18.941Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Account.jsx",
-              "DocumentMoniker": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\ClientApp\\src\\Pages\\Accountpage\\Account.jsx",
-              "RelativeDocumentMoniker": "Project1\\ClientApp\\src\\Pages\\Accountpage\\Account.jsx",
-              "ToolTip": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\ClientApp\\src\\Pages\\Accountpage\\Account.jsx",
-              "RelativeToolTip": "Project1\\ClientApp\\src\\Pages\\Accountpage\\Account.jsx",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAGkAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2024-12-06T10:03:51.019Z"
             }
           ]
         }

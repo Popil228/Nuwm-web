@@ -149,6 +149,7 @@ if (app.Environment.IsDevelopment())
 app.UseCors("ReactPolicy");
 
 app.UseHttpsRedirection();
+app.UseDefaultFiles();
 app.UseStaticFiles();
 app.UseRouting();
 
