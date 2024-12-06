@@ -36,7 +36,7 @@ namespace Project1.Controllers
             var user = await _context.Persons
                                 .Include(p => p.Student) // Підключаємо студента
                                 .ThenInclude(s => s.Group) // Підключаємо групу студента
-                                .ThenInclude(g => g.Subgroups) // Підключаємо підгрупи групи
+                                .ThenInclude(s => s.Subgroups) // Підключаємо підгрупи групи
                                 .Include(p => p.Student)
                                 .ThenInclude(s => s.Group)
                                 .ThenInclude(g => g.Institute)
