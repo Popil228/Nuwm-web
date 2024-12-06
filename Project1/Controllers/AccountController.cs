@@ -57,7 +57,7 @@ namespace Project1.Controllers
                 SurName = user.SurName,
                 ThirdName = user.ThirdName,
                 Group = user.Student.Group.Name,
-                Subgroup = subgroup != null ? subgroup.Number.ToString() : "No Subgroup", // Перевіряємо, чи є підгрупи
+                Subgroup = user.Student.Subgroup.Number.ToString(), // Перевіряємо, чи є підгрупи
                 Course = course.ToString(),
                 Institute = user.Student.Group.Institute?.Name ?? "No Institute" // Перевіряємо, чи є інститут
             };
