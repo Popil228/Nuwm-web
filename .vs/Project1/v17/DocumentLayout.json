@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|d:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0441\u0430\u0439\u0442\\project1\\project1\\clientapp\\package.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|solutionrelative:project1\\clientapp\\package.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|d:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0441\u0430\u0439\u0442\\project1\\project1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{341E77BE-F539-4D9D-B4E3-C429A4E01E4B}|Project1\\Project1.csproj|solutionrelative:project1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -23,12 +27,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "package.json",
+              "DocumentMoniker": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\ClientApp\\package.json",
+              "RelativeDocumentMoniker": "Project1\\ClientApp\\package.json",
+              "ToolTip": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\ClientApp\\package.json",
+              "RelativeToolTip": "Project1\\ClientApp\\package.json",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAC4AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-12-07T11:15:45.892Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\Program.cs",
               "RelativeDocumentMoniker": "Project1\\Program.cs",
               "ToolTip": "D:\\\u043D\u0430\u0432\u0447\u0430\u043D\u043D\u044F\\\u0421\u0430\u0439\u0442\\Project1\\Project1\\Program.cs",
               "RelativeToolTip": "Project1\\Program.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAAAFEAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAFgAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-06T23:36:41.338Z",
               "EditorCaption": ""
