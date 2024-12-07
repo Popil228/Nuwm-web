@@ -78,9 +78,6 @@ builder.Services.AddTransient<EmailService>();
 
 var app = builder.Build();
 
-var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
-app.Urls.Add($"http://*:{port}");
-
 //Ролі
 using (var scope = app.Services.CreateAsyncScope())
 {
