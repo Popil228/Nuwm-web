@@ -44,21 +44,20 @@ namespace Project1.Controllers
 
             if (roles.Contains("Student")){
             var student = await _context.Persons
-                .Where(p => p.Email == emailClaim)  // Фільтруємо по Email
-                .Include(p => p.Student)            // Підключаємо студента
-                    .ThenInclude(s => s.Subgroup)      // Підключаємо групу студента
+                .Where(p => p.Email == emailClaim)  
+                .Include(p => p.Student)           
+                    .ThenInclude(s => s.Subgroup)    
                         .ThenInclude(sg => sg.Group)
                 .Include(p => p.Student)
                     .ThenInclude(s => s.Subgroup)
-                        .ThenInclude(sg => sg.Schedules) // Завантажуємо розклад підгрупи
+                        .ThenInclude(sg => sg.Schedules) 
                             .ThenInclude(sch => sch.NumPara)
-                        .ThenInclude(sg => sg.Schedules) // Завантажуємо розклад підгрупи
+                        .ThenInclude(sg => sg.Schedules)
                             .ThenInclude(sch => sch.TypePara)
                         .ThenInclude(sg => sg.Schedules)
                             .ThenInclude(sch => sch.Subject)  
-                                .ThenInclude(sub => sub.Teacher) // Завантажуємо викладача
-                                    .ThenInclude(tchr => tchr.Person)  // Завантажуємо ПІБ викладача
-                //.Where(p => p.Student.Group.Subgroups.Any(sg => sg.Schedules.Any(schedule => schedule.Data == Data))) // Фільтрація по Data для розкладу
+                                .ThenInclude(sub => sub.Teacher) 
+                                    .ThenInclude(tchr => tchr.Person) 
                 .FirstOrDefaultAsync();
 
 
